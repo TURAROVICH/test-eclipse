@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Cards />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Cards from './components/Cards.vue'
+import {mapActions} from 'vuex'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  async mounted(){
+    this.fetch()
+  },
+  methods:{
+    ...mapActions(['fetch'])
+  },
+  components:{
+    Cards
   }
 }
 </script>
@@ -21,8 +26,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px auto;
+  width: 90%;
 }
 </style>
